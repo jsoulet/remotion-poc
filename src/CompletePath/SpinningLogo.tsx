@@ -16,7 +16,9 @@ const SpinningLogo = () => {
 			stiffness: 500,
 		}
 	})
-	const rotation = interpolate(rotationDriver, [0, 1], [180, 360 * 2])
+	const rotation = interpolate(rotationDriver, [0, 1], [180, 360 * 2], {
+		
+	})
   return (
 	<div style={{
 		display: 'flex',
