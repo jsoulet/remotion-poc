@@ -1,5 +1,5 @@
 import React from 'react'
-import {interpolate, Img, useCurrentFrame, useVideoConfig, spring, Easing} from 'remotion';
+import {interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
 
 interface CounterProps {
   value: number,

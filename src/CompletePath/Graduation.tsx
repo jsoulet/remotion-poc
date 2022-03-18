@@ -1,5 +1,5 @@
 import React from 'react'
-import {interpolate, Img, useCurrentFrame, useVideoConfig, spring, Easing} from 'remotion';
+import {interpolate, Img, useCurrentFrame, useVideoConfig} from 'remotion';
 import pathImage from "./pathImage.png";
 interface GraduationProps {
   path: string

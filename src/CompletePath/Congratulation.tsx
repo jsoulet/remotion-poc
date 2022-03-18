@@ -1,5 +1,5 @@
 import React from 'react'
-import {interpolate, Sequence, useCurrentFrame, useVideoConfig, spring, Easing} from 'remotion';
+import {interpolate,  useCurrentFrame, useVideoConfig} from 'remotion';
 
 interface CongratulationProps {
   text: string

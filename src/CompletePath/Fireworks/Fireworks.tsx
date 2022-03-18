@@ -1,5 +1,4 @@
 import React from 'react'
-import { Sequence, useCurrentFrame } from "remotion";
 import { Lottier } from "remotion-lottie";
 import data from "./lottieData.json";
 
