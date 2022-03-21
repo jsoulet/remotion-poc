@@ -1,5 +1,5 @@
 import './styles.css'
-import React, {useCallback, useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Sequence, useVideoConfig,
 	delayRender, continueRender, AbsoluteFill} from 'remotion';
 import SpinningLogo from './SpinningLogo'
