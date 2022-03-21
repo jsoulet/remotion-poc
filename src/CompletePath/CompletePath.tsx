@@ -49,104 +49,105 @@ const CompletePath = () => {
     flex: 1,
 	}}
 	>
-		{data && <>
-			<Sequence
-				from={0}
-				durationInFrames={spinningLogoDuration}
-			>
-				<SpinningLogo/>
-			</Sequence>
-			<Sequence
-				from={spinningLogoDuration}
-				durationInFrames={fireworksDuration}
-			>
-				<Fireworks/>
-			</Sequence>
-			<Sequence
-				from={spinningLogoDuration +
-				fireworksDuration}
-				durationInFrames={congratulationDuration}
-			>
-				<Congratulation
-					videoUrl={rollerskates}
-					text={`Congratulation ${data.student.name}`}
+		{data && 
+			<>
+				<Sequence
+					from={0}
+					durationInFrames={spinningLogoDuration}
+				>
+					<SpinningLogo/>
+				</Sequence>
+				<Sequence
+					from={spinningLogoDuration}
+					durationInFrames={fireworksDuration}
+				>
+					<Fireworks/>
+				</Sequence>
+				<Sequence
+					from={spinningLogoDuration +
+					fireworksDuration}
+					durationInFrames={congratulationDuration}
+				>
+					<Congratulation
+						videoUrl={rollerskates}
+						text={`Congratulation ${data.student.name}`}
 				/>
-			</Sequence>
-			<Sequence
-				from={spinningLogoDuration +
+				</Sequence>
+				<Sequence
+					from={spinningLogoDuration +
 				fireworksDuration +
-				congratulationDuration}
-				durationInFrames={graduationDuration}
-			>
-				<Graduation path={data.student.path.name} pathImage={data.student.path.image}/>
-			</Sequence>
-			<Sequence
-				from={spinningLogoDuration +
+					congratulationDuration}
+					durationInFrames={graduationDuration}
+				>
+					<Graduation path={data.student.path.name} pathImage={data.student.path.image}/>
+				</Sequence>
+				<Sequence
+					from={spinningLogoDuration +
 				fireworksDuration +
 				congratulationDuration +
-				graduationDuration}
-				durationInFrames={daysDuration}
-			>
-				<Counter
-					value={data.student.path.duration}
-					renderLabel={() => 'That was a long run...'}
-					renderTitle={(value) => `${value} days`}
+					graduationDuration}
+					durationInFrames={daysDuration}
+				>
+					<Counter
+						value={data.student.path.duration}
+						renderLabel={() => 'That was a long run...'}
+						renderTitle={(value) => `${value} days`}
 				/>
-			</Sequence>
-			<Sequence
-				from={spinningLogoDuration +
+				</Sequence>
+				<Sequence
+					from={spinningLogoDuration +
 				fireworksDuration +
 				congratulationDuration +
 				graduationDuration +
-				daysDuration}
-				durationInFrames={mentorDuration}
-			>
-				<Mentor name={data.mainMentor.name} avatar={data.mainMentor.avatar}/>
-			</Sequence>
-			<Sequence
-				from={spinningLogoDuration +
+					daysDuration}
+					durationInFrames={mentorDuration}
+				>
+					<Mentor name={data.mainMentor.name} avatar={data.mainMentor.avatar}/>
+				</Sequence>
+				<Sequence
+					from={spinningLogoDuration +
 				fireworksDuration +
 				congratulationDuration +
 				graduationDuration +
 				daysDuration +
-				mentorDuration}
-				durationInFrames={sessionsDuration}
-			>
-				<Counter
-					value={data.student.sessionNumber * data.student.sessionDuration}
-					renderLabel={() => `Together you did ${data.student.sessionNumber} sessions which represents`}
-					renderTitle={(value) => `${value} minutes`}/>
-			</Sequence>
-			<Sequence
-				from={spinningLogoDuration +
+					mentorDuration}
+					durationInFrames={sessionsDuration}
+				>
+					<Counter
+						value={data.student.sessionNumber * data.student.sessionDuration}
+						renderLabel={() => `Together you did ${data.student.sessionNumber} sessions which represents`}
+						renderTitle={(value) => `${value} minutes`}/>
+				</Sequence>
+				<Sequence
+					from={spinningLogoDuration +
 				fireworksDuration +
 				congratulationDuration +
 				graduationDuration +
 				daysDuration +
 				mentorDuration +
-				sessionsDuration}
-				durationInFrames={onlyOneDuration}
-			>
-				<Congratulation
-					text="But she was+not the only+one with you"
-					splitSymbol='+'
+					sessionsDuration}
+					durationInFrames={onlyOneDuration}
+				>
+					<Congratulation
+						text="But she was+not the only+one with you"
+						splitSymbol='+'
 				/>
-			</Sequence>
-			<Sequence
-				from={spinningLogoDuration +
+				</Sequence>
+				<Sequence
+					from={spinningLogoDuration +
 				fireworksDuration +
 				congratulationDuration +
 				graduationDuration +
 				daysDuration +
 				mentorDuration +
 				sessionsDuration +
-				onlyOneDuration}
-				durationInFrames={othersDuration}
-			>
-				<Others people={data.otherPersons}/>
-			</Sequence>
-			<Sequence
-				from={
+					onlyOneDuration}
+					durationInFrames={othersDuration}
+				>
+					<Others people={data.otherPersons}/>
+				</Sequence>
+				<Sequence
+					from={
 				spinningLogoDuration +
 				fireworksDuration +
 				congratulationDuration +
@@ -155,21 +156,21 @@ const CompletePath = () => {
 				mentorDuration +
 				onlyOneDuration +
 				sessionsDuration +
-				othersDuration}
-				durationInFrames={otherProudDuration}
-			>
-				<Congratulation
-					text="They're all+proud of you..." splitSymbol='+' style={{
+					othersDuration}
+					durationInFrames={otherProudDuration}
+				>
+					<Congratulation
+						text="They're all+proud of you..." splitSymbol='+' style={{
 					backgroundColor: '#7451EB',
-					}}
-					textStyle={{
+						}}
+						textStyle={{
 						color: '#FFFFFF',	
 						fontWeight: 'normal'
-					}}
+						}}
 					/>
-			</Sequence>
-			<Sequence
-				from={spinningLogoDuration +
+				</Sequence>
+				<Sequence
+					from={spinningLogoDuration +
 				fireworksDuration +
 				congratulationDuration +
 				graduationDuration +
@@ -178,21 +179,21 @@ const CompletePath = () => {
 				onlyOneDuration +
 				sessionsDuration +
 				othersDuration +
-				otherProudDuration}
-				durationInFrames={proudDuration}
-			>
-				<Congratulation
-					text='YOU can be+proud of you!' splitSymbol='+' style={{
+					otherProudDuration}
+					durationInFrames={proudDuration}
+				>
+					<Congratulation
+						text='YOU can be+proud of you!' splitSymbol='+' style={{
 					backgroundColor: '#7451EB',
-					}}
-					textStyle={{
+						}}
+						textStyle={{
 						color: '#FFFFFF',
 						fontWeight: 'normal'
-					}}
+						}}
 					/>
-			</Sequence>
-			<Sequence
-				from={
+				</Sequence>
+				<Sequence
+					from={
 					spinningLogoDuration +
 					fireworksDuration +
 					congratulationDuration +
@@ -203,17 +204,17 @@ const CompletePath = () => {
 					sessionsDuration +
 					othersDuration +
 					otherProudDuration +
-				proudDuration}
-				durationInFrames={adventureDuration}
-			>
-				<Congratulation
-					videoUrl={mountain}
-					text="Your new adventure+can now begin..."
-					splitSymbol='+'
+					proudDuration}
+					durationInFrames={adventureDuration}
+				>
+					<Congratulation
+						videoUrl={mountain}
+						text="Your new adventure+can now begin..."
+						splitSymbol='+'
 				/>
-			</Sequence>
-			<Audio src={soundtrack} startFrom={0}/>
-           </>}
+				</Sequence>
+				<Audio src={soundtrack} startFrom={0}/>
+			</>}
 	</AbsoluteFill>
 	
 )

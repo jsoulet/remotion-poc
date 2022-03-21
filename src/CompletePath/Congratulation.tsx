@@ -4,7 +4,6 @@ import {AbsoluteFill, interpolate,  useCurrentFrame, useVideoConfig, Video} from
 interface CongratulationProps {
   text: string
   splitSymbol?: string
-  backgroundColor?: string
   videoUrl?: string
   style?: React.CSSProperties,
   textStyle?: React.CSSProperties,
@@ -15,18 +14,19 @@ const Congratulation = ({ text, splitSymbol = ' ', style, textStyle, videoUrl }:
   const currentFrame = useCurrentFrame()
   return (
 	<>
-		{videoUrl && <AbsoluteFill
-			style={{
+		{videoUrl &&
+			<AbsoluteFill
+				style={{
         justifyContent: 'center',
         alignItems: 'center',
-			}}
-		             >
-			<Video
-				muted src={videoUrl} style={{
+				}}
+			>
+				<Video
+					muted src={videoUrl} style={{
         height: '100%',
         width: 'auto'
-				}}/>
-		</AbsoluteFill>}
+					}}/>
+			</AbsoluteFill>}
 		<AbsoluteFill style={{
 		justifyContent: 'center',
 		alignItems: 'center',
