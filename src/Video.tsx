@@ -26,7 +26,7 @@ export const RemotionVideo: React.FC = () => {
 			<Composition
 				id="CompletePath"
 				component={CompletePath}
-				durationInFrames={20 * FPS}
+				durationInFrames={42 * FPS}
 				fps={FPS}
 				width={WIDTH}
 				height={HEIGHT}

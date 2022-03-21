@@ -1,75 +1,222 @@
 import './styles.css'
 import React, {useCallback, useState, useEffect} from 'react'
-import {Sequence, useVideoConfig, delayRender, continueRender} from 'remotion';
+import {Sequence, useVideoConfig,
+	delayRender, continueRender, AbsoluteFill} from 'remotion';
 import SpinningLogo from './SpinningLogo'
 import Congratulation from './Congratulation'
 import Graduation from './Graduation'
 import Fireworks from './Fireworks'
 import { Audio } from "remotion";
-import soundtrack from './soundtrack.mp3'
 import Counter from './Counter';
 import Mentor from './Mentor';
-import mentorAvatar from './mentorAvatar.jpeg'
 import getData, {apiPayload} from './service/fetchData'
+import Others from './Others';
+import soundtrack from './soundtrack.mp3'
+import rollerskates from './rollerskates.mp4'
+import mountain from './mountain2.mp4'
 
 const CompletePath = () => {
   const [data, setData] = useState<apiPayload>();
-  const [handle] = useState(() => delayRender());
- 
-  const fetchData = useCallback(async () => {
-    const response = await getData();
-    setData(response)
-    continueRender(handle);
+  const [handle] = useState(() =>
+	delayRender());
+  useEffect(() => {
+		const fetchData = async () => {
+			const response = await getData();
+			setData(response)
+			continueRender(handle);
+		};
+    fetchData();
   }, [handle]);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
   const { fps } = useVideoConfig()
   const spinningLogoDuration = fps * 1.5
   const fireworksDuration = fps * 2
-  const congratulationDuration = fps * 2
+  const congratulationDuration = fps * 3
   const graduationDuration = fps * 2
-  const daysDuration = fps * 3
+  const
+	daysDuration = fps * 3
   const mentorDuration = fps * 3
-  const proudDuration = fps * 2
+  const proudDuration = fps * 3
   const sessionsDuration = fps * 3
+  const onlyOneDuration = fps * 3
+	const othersDuration = fps * (data?.otherPersons.length || 0)
+	const otherProudDuration = fps * 3
+	const adventureDuration = fps * 5
 
   return (
-	<div style={{
+	<AbsoluteFill style={{
     backgroundColor: 'white',
     flex: 1,
 	}}
 	>
 		{data && <>
-			<Sequence from={0} durationInFrames={spinningLogoDuration}>
+			<Sequence
+				from={0}
+				durationInFrames={spinningLogoDuration}
+			>
 				<SpinningLogo/>
 			</Sequence>
-			<Sequence from={spinningLogoDuration} durationInFrames={fireworksDuration}>
+			<Sequence
+				from={spinningLogoDuration}
+				durationInFrames={fireworksDuration}
+			>
 				<Fireworks/>
 			</Sequence>
-			<Sequence from={spinningLogoDuration + fireworksDuration} durationInFrames={congratulationDuration}>
-				<Congratulation text={`Congratulation ${data.student.name}`} backgroundColor="#00EDA2"/>
+			<Sequence
+				from={spinningLogoDuration +
+				fireworksDuration}
+				durationInFrames={congratulationDuration}
+			>
+				<Congratulation
+					videoUrl={rollerskates}
+					text={`Congratulation ${data.student.name}`}
+				/>
 			</Sequence>
-			<Sequence from={spinningLogoDuration + fireworksDuration + congratulationDuration} durationInFrames={graduationDuration}>
-				<Graduation path={data.student.path}/>
+			<Sequence
+				from={spinningLogoDuration +
+				fireworksDuration +
+				congratulationDuration}
+				durationInFrames={graduationDuration}
+			>
+				<Graduation path={data.student.path.name} pathImage={data.student.path.image}/>
 			</Sequence>
-			<Sequence from={spinningLogoDuration + fireworksDuration + congratulationDuration + graduationDuration} durationInFrames={daysDuration}>
-				<Counter value={data.pathDuration} renderLabel={() => 'That was a long run...'} renderTitle={(value) => `${value} days`}/>
+			<Sequence
+				from={spinningLogoDuration +
+				fireworksDuration +
+				congratulationDuration +
+				graduationDuration}
+				durationInFrames={daysDuration}
+			>
+				<Counter
+					value={data.student.path.duration}
+					renderLabel={() => 'That was a long run...'}
+					renderTitle={(value) => `${value} days`}
+				/>
 			</Sequence>
-			<Sequence from={spinningLogoDuration + fireworksDuration + congratulationDuration + graduationDuration + daysDuration} durationInFrames={mentorDuration}>
-				<Mentor name="Andrea" avatar={mentorAvatar}/>
+			<Sequence
+				from={spinningLogoDuration +
+				fireworksDuration +
+				congratulationDuration +
+				graduationDuration +
+				daysDuration}
+				durationInFrames={mentorDuration}
+			>
+				<Mentor name={data.mainMentor.name} avatar={data.mainMentor.avatar}/>
 			</Sequence>
-			<Sequence from={spinningLogoDuration + fireworksDuration + congratulationDuration + graduationDuration + daysDuration + mentorDuration} durationInFrames={sessionsDuration}>
-				<Counter value={data.sessionNumber * data.sessionDuration} renderLabel={() => `Together you did ${data.sessionNumber} sessions which represents`} renderTitle={(value) => `${value} minutes`}/>
+			<Sequence
+				from={spinningLogoDuration +
+				fireworksDuration +
+				congratulationDuration +
+				graduationDuration +
+				daysDuration +
+				mentorDuration}
+				durationInFrames={sessionsDuration}
+			>
+				<Counter
+					value={data.student.sessionNumber * data.student.sessionDuration}
+					renderLabel={() => `Together you did ${data.student.sessionNumber} sessions which represents`}
+					renderTitle={(value) => `${value} minutes`}/>
 			</Sequence>
-			<Sequence from={spinningLogoDuration + fireworksDuration + congratulationDuration + graduationDuration + daysDuration + mentorDuration + sessionsDuration} durationInFrames={proudDuration}>
-				<Congratulation text='You can be+proud of you!' splitSymbol='+' backgroundColor='#00F8F6'/>
+			<Sequence
+				from={spinningLogoDuration +
+				fireworksDuration +
+				congratulationDuration +
+				graduationDuration +
+				daysDuration +
+				mentorDuration +
+				sessionsDuration}
+				durationInFrames={onlyOneDuration}
+			>
+				<Congratulation
+					text="But she was+not the only+one with you"
+					splitSymbol='+'
+				/>
 			</Sequence>
-			<Audio src={soundtrack} startFrom={240}/>
-		</>}
-	</div>
+			<Sequence
+				from={spinningLogoDuration +
+				fireworksDuration +
+				congratulationDuration +
+				graduationDuration +
+				daysDuration +
+				mentorDuration +
+				sessionsDuration +
+				onlyOneDuration}
+				durationInFrames={othersDuration}
+			>
+				<Others people={data.otherPersons}/>
+			</Sequence>
+			<Sequence
+				from={
+				spinningLogoDuration +
+				fireworksDuration +
+				congratulationDuration +
+				graduationDuration +
+				daysDuration +
+				mentorDuration +
+				onlyOneDuration +
+				sessionsDuration +
+				othersDuration}
+				durationInFrames={otherProudDuration}
+			>
+				<Congratulation
+					text="They're all+proud of you..." splitSymbol='+' style={{
+					backgroundColor: '#7451EB',
+					}}
+					textStyle={{
+						color: '#FFFFFF',	
+						fontWeight: 'normal'
+					}}
+					/>
+			</Sequence>
+			<Sequence
+				from={spinningLogoDuration +
+				fireworksDuration +
+				congratulationDuration +
+				graduationDuration +
+				daysDuration +
+				mentorDuration +
+				onlyOneDuration +
+				sessionsDuration +
+				othersDuration +
+				otherProudDuration}
+				durationInFrames={proudDuration}
+			>
+				<Congratulation
+					text='YOU can be+proud of you!' splitSymbol='+' style={{
+					backgroundColor: '#7451EB',
+					}}
+					textStyle={{
+						color: '#FFFFFF',
+						fontWeight: 'normal'
+					}}
+					/>
+			</Sequence>
+			<Sequence
+				from={
+					spinningLogoDuration +
+					fireworksDuration +
+					congratulationDuration +
+					graduationDuration +
+					daysDuration +
+					mentorDuration +
+					onlyOneDuration +
+					sessionsDuration +
+					othersDuration +
+					otherProudDuration +
+				proudDuration}
+				durationInFrames={adventureDuration}
+			>
+				<Congratulation
+					videoUrl={mountain}
+					text="Your new adventure+can now begin..."
+					splitSymbol='+'
+				/>
+			</Sequence>
+			<Audio src={soundtrack} startFrom={0}/>
+           </>}
+	</AbsoluteFill>
 	
 )
 }
-export default CompletePath
+export
+default CompletePath

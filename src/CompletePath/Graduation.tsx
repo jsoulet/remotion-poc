@@ -1,11 +1,11 @@
 import React from 'react'
 import {interpolate, Img, useCurrentFrame, useVideoConfig} from 'remotion';
-import pathImage from "./pathImage.png";
 interface GraduationProps {
   path: string
   partner?: string
+  pathImage?: string
 }
-const Graduation = ({ path, partner = 'OpenClassrooms'}: GraduationProps) => {
+const Graduation = ({ path, pathImage, partner = 'OpenClassrooms'}: GraduationProps) => {
   const { fps, durationInFrames } = useVideoConfig()
   const currentFrame = useCurrentFrame()
   const pathImageY = interpolate(
