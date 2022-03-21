@@ -38,8 +38,8 @@ const Congratulation = ({ text, splitSymbol = ' ', style, textStyle, videoUrl }:
 		>
 			<h1 style={{
       textAlign: 'center',
-      fontWeight: 'bold',
       fontSize: 100,
+      fontWeight: 'normal',
       lineHeight: 1.5,
 			}}
 			>

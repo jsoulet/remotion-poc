@@ -2,18 +2,20 @@ import './styles.css'
 import React, {useState, useEffect} from 'react'
 import {Sequence, useVideoConfig,
 	delayRender, continueRender, AbsoluteFill} from 'remotion';
-import SpinningLogo from './SpinningLogo'
-import Congratulation from './Congratulation'
-import Graduation from './Graduation'
-import Fireworks from './Fireworks'
+import {
+	SpinningLogo,
+	Congratulation,
+	Graduation,
+	Counter,
+	Mentor,
+	Others,
+	Fireworks
+} from './Sequences'
 import { Audio } from "remotion";
-import Counter from './Counter';
-import Mentor from './Mentor';
-import getData, {apiPayload} from './service/fetchData'
-import Others from './Others';
-import soundtrack from './soundtrack.mp3'
-import rollerskates from './rollerskates.mp4'
-import mountain from './mountain2.mp4'
+import getData, {apiPayload} from './services/fetchData'
+import soundtrack from './assets/soundtrack.mp3'
+import rollerskates from './assets/rollerskates.mp4'
+import mountain from './assets/mountain2.mp4'
 
 const CompletePath = () => {
   const [data, setData] = useState<apiPayload>();
@@ -70,7 +72,10 @@ const CompletePath = () => {
 				>
 					<Congratulation
 						videoUrl={rollerskates}
-						text={`Congratulation ${data.student.name}`}
+						textStyle={{
+							fontWeight: 'bold'
+						}}
+						text={`Congratulations ${data.student.name}`}
 				/>
 				</Sequence>
 				<Sequence
@@ -129,7 +134,7 @@ const CompletePath = () => {
 					durationInFrames={onlyOneDuration}
 				>
 					<Congratulation
-						text="But she was+not the only+one with you"
+						text="But she was+not the only+one with you..."
 						splitSymbol='+'
 				/>
 				</Sequence>
@@ -165,7 +170,6 @@ const CompletePath = () => {
 						}}
 						textStyle={{
 						color: '#FFFFFF',	
-						fontWeight: 'normal'
 						}}
 					/>
 				</Sequence>
@@ -183,12 +187,11 @@ const CompletePath = () => {
 					durationInFrames={proudDuration}
 				>
 					<Congratulation
-						text='YOU can be+proud of you!' splitSymbol='+' style={{
+						text='YOU should be+proud of yourself!' splitSymbol='+' style={{
 					backgroundColor: '#7451EB',
 						}}
 						textStyle={{
 						color: '#FFFFFF',
-						fontWeight: 'normal'
 						}}
 					/>
 				</Sequence>
@@ -209,7 +212,7 @@ const CompletePath = () => {
 				>
 					<Congratulation
 						videoUrl={mountain}
-						text="Your new adventure+can now begin..."
+						text="Your new adventure+is ready to begin..."
 						splitSymbol='+'
 				/>
 				</Sequence>

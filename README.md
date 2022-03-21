@@ -1,12 +1,12 @@
-# Remotion POC
-Experimenting [Remotion v2](https://www.remotion.dev/) on a video for [OpenClassrooms](https://openclassrooms.com): build a video when a student finishes its path to sum up their joourney and celebrate their achivement.
+# 📼 Remotion POC 📼
+Experimenting [Remotion v2](https://www.remotion.dev/) on a video for [OpenClassrooms](https://openclassrooms.com): generate a video when a student finishes its path to sum up their journey and celebrate their achivement.
 
 ## Tested features
-- Moke API call
+- Simulated API call
 - Integrate image
 - Integrate video
 - Lottie animation
-- Manipulate randomness
+- Randomness
 - Value interpolation
 - Spring animation
 - Audio track
@@ -14,6 +14,5 @@ Experimenting [Remotion v2](https://www.remotion.dev/) on a video for [OpenClass
 ## Result
 
 <p align="center">
-    <a href="http://www.youtube.com/watch?v=bP38E6SE-9o"><img alt=" Remotion test video" src="http://img.youtube.com/vi/bP38E6SE-9o/0.jpg"/></a>
-</>
+    <a href="http://www.youtube.com/watch?v=6dCf9L6TVrE"><img alt="Remotion test video" src="http://img.youtube.com/vi/6dCf9L6TVrE/0.jpg"/></a>
 </p>

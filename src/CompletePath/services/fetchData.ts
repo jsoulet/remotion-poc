@@ -41,7 +41,7 @@ const fetchData = () => {
           path: {
             name: 'Frontend developer',
             image: fedev,
-            duration: 365,
+            duration: 294,
           },
           sessionNumber: 47,
           sessionDuration: 45,
