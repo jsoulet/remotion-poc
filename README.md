@@ -1,59 +1,19 @@
-# Remotion video
+# Remotion POC
+Experimenting [Remotion v2](https://www.remotion.dev/) on a video for [OpenClassrooms](https://openclassrooms.com): build a video when a student finishes its path to sum up their joourney and celebrate their achivement.
+
+## Tested features
+- Moke API call
+- Integrate image
+- Integrate video
+- Lottie animation
+- Manipulate randomness
+- Value interpolation
+- Spring animation
+- Audio track
+
+## Result
 
 <p align="center">
-  <a href="https://github.com/remotion-dev/logo">
-    <img src="https://github.com/remotion-dev/logo/raw/main/withtitle/element-0.png">
-  </a>
+    <a href="http://www.youtube.com/watch?v=bP38E6SE-9o"><img alt=" Remotion test video" src="http://img.youtube.com/vi/bP38E6SE-9o/0.jpg"/></a>
+</>
 </p>
-
-Welcome to your Remotion project!
-
-## Commands
-
-**Install Dependencies**
-
-```console
-npm i
-```
-
-**Start Preview**
-
-```console
-npm start
-```
-
-**Render video**
-
-```console
-npm run build
-```
-
-**Server render demo**
-
-```console
-npm run server
-```
-
-See [docs for server-side rendering](https://www.remotion.dev/docs/ssr) here.
-
-**Upgrade Remotion**
-
-```console
-npm run upgrade
-```
-
-## Docs
-
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
-
-## Help
-
-We provide help [on our Discord server](https://discord.gg/6VzzNDwUwV).
-
-## Issues
-
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
-
-## License
-
-Notice that for some entities a company license is needed. Read [the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
